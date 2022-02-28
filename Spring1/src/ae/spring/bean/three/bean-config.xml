@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="complicatedObject" class="ae.spring.bean.three.Complicated">
+		<!-- List -->
+		<property name="list">
+			<list>
+				<!-- Inserisco l'elemento per valore -->
+				<value>element list</value>
+			</list>
+		</property>
+
+		<!-- Set -->
+		<property name="set">
+			<set>
+				<ref bean="myObjectId" />
+			</set>
+		</property>
+
+		<!-- Map -->
+		<property name="map">
+			<map>
+				<!-- Inserisco l'elemento per valore -->
+				<entry key="key1" value="3.2" />
+				<entry key="key2">
+					<null />
+				</entry>
+
+				<!-- Inserisco l'elemento per riferimento -->
+				<!-- <entry key="key3" value-ref="myBeanId" /> -->
+			</map>
+		</property>
+	</bean>
+
+	<bean id="myObjectId" class="ae.spring.bean.three.MyObject">
+		<property name="field" value="field value" />
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations"
+			value="classpath:/ae/spring/bean/three/prop.properties" />
+	</bean>
+
+	<bean id="myObjectByProperties" class="ae.spring.bean.three.MyObject">
+		<property name="field" value="${myfield}" />
+	</bean>
+
+</beans>

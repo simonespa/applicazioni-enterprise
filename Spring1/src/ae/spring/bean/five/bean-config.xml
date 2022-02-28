@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="ae.spring.bean.five.MyBeanPostProcessor" />
+	<bean class="ae.spring.bean.five.MyBeanFactoryPostProcessor" />
+
+	<bean id="pluto" class="ae.spring.bean.five.User" >
+		<property name="firstname" value="Ciccio"></property>
+		<property name="lastname" value="Pasticcio"></property>
+	</bean>
+	
+	<bean id="paperino" class="ae.spring.bean.five.UserDescriberImpl" />
+	
+</beans>

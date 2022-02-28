@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="pippo" class="ae.spring.bean.two.Manager">
+		<property name="user" ref="pluto" />
+	</bean>
+
+	<bean id="topolino" class="ae.spring.bean.two.Manager"
+		init-method="init" scope="prototype">
+		<property name="user" ref="pluto"></property>
+	</bean>
+
+	<bean id="pluto" class="ae.spring.bean.two.User">
+		<property name="firstname" value="Ciccio"></property>
+		<property name="lastname" value="Pasticcio"></property>
+	</bean>
+
+</beans>

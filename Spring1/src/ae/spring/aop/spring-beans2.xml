@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Definizione Advice -->			
+	<bean id="myBeforeAdvice" class="ae.spring.aop.advice.MyBeforeAdvice" />
+	<bean id="myAfterReturningAdvice" class="ae.spring.aop.advice.MyAfterReturningAdvice" />
+	<bean id="myThrowAdvice" class="ae.spring.aop.advice.MyThrowAdvice" />
+	<bean id="myAroundAdvice" class="ae.spring.aop.advice.MyAroundAdvice" />
+
+	<!-- Definizione Advisor -->			
+	<bean id="myBeforeAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<constructor-arg>
+			<ref local="myBeforeAdvice" />
+		</constructor-arg>
+		<property name="pattern">
+			<value>.*</value>
+		</property>
+	</bean>
+	
+	<bean id="myAfterReturningAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<constructor-arg>
+			<ref local="myAfterReturningAdvice"/>
+		</constructor-arg>
+		<property name="pattern">
+			<value>.*sell.*</value>
+		</property>
+	</bean>
+	
+	<bean id="myThrowAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<constructor-arg>
+			<ref local="myThrowAdvice"/>
+		</constructor-arg>
+		<property name="pattern">
+			<value>.*product.*</value>
+		</property>
+	</bean>
+
+	<!-- Definizione Proxy -->
+	<bean id="cashDeskProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<list>
+				<value>ae.spring.aop.CashDesk</value>
+			</list>
+		</property>
+		<property name="target" ref="cashDesk" />
+		<property name="interceptorNames">
+			<list>								
+				<value>myBeforeAdvisor</value>	
+				<value>myAfterReturningAdvisor</value>	
+				<value>myThrowAdvisor</value>				
+				<!-- Per utilizzare l'Around Advice decommentare la riga sottostante e commentare i tre advice soprastanti -->
+				<!-- <value>myAroundAdvisor</value>	-->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Definizione bean  -->	
+	<bean id="cashDesk" class="ae.spring.aop.CashDeskImpl" />
+	
+</beans>

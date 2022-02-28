@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Definizione Advice -->			
+	<bean id="myBeforeAdvice" class="ae.spring.aop.advice.MyBeforeAdvice" />
+	<bean id="myAfterReturningAdvice" class="ae.spring.aop.advice.MyAfterReturningAdvice" />
+	<bean id="myThrowAdvice" class="ae.spring.aop.advice.MyThrowAdvice" />
+	<bean id="myAroundAdvice" class="ae.spring.aop.advice.MyAroundAdvice" />
+
+	<!-- Definizione Proxy -->
+	<bean id="cashDeskProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<list>
+				<value>ae.spring.aop.CashDesk</value>
+			</list>
+		</property>
+		<property name="target" ref="cashDesk" />
+		<property name="interceptorNames">
+			<list>								
+				<value>myBeforeAdvice</value>	
+				<value>myAfterReturningAdvice</value>	
+				<value>myThrowAdvice</value>				
+				<!-- Per utilizzare l'Around Advice decommentare la riga sottostante e commentare i tre advice soprastanti -->
+				<!-- <value>myAroundAdvice</value>	-->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Definizione bean  -->	
+	<bean id="cashDesk" class="ae.spring.aop.CashDeskImpl" />
+	
+</beans>

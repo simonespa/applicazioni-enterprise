@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- mail sender -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+<!--		<property name="port" value="465" />-->
+<!--		<property name="protocol" value="smtps" />-->
+		<property name="username" value="speriamochepassiamolesame@gmail.com" />
+		<property name="password" value="aspettaespera" />
+		<property name="javaMailProperties">
+			<props>
+				<!-- Use SMTP-AUTH to authenticate to SMTP server -->
+				<prop key="mail.smtp.auth">true</prop>
+				<!-- Use TLS to encrypt communication with SMTP server -->
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage" />
+<!--	<bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype"/>-->
+	
+	<bean id="simpleMailService" class="ae.spring.mail.SimpleMailServiceImpl">
+		<property name="mailSender" ref="mailSender" />
+		<property name="simpleMailMessage" ref="simpleMailMessage" />
+	</bean>
+	
+</beans>

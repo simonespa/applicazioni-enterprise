@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.8.1.201111220115-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/spa/simone/knight.xml</config>
+		<config>src/springidol/spring-idol.xml</config>
+		<config>src/annotations/application-context.xml</config>
+		<config>src/pack/applicationContext.xml</config>
+		<config>src/aop/applicationContext.xml</config>
+		<config>src/aop/annotation/applicationContext.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

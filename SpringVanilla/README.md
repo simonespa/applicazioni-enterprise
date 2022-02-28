@@ -1,0 +1,38 @@
+# Spring Vanilla
+
+## Dependencies
+
+* antlr-2.7.6.jar
+* aopalliance.jar
+* commons-collections-3.1.jar
+* commons-dbcp-1.4.jar
+* commons-lang3-3.1.jar
+* commons-logging-1.1.1.jar
+* commons-pool-1.6.jar
+* dom4j-1.6.1.jar
+* hibernate3.jar
+* javassist-3.12.0.GA.jar
+* jstl-api-1.2.jar
+* jta-1.1.jar
+* librerie.txt
+* org.springframework.aop-3.1.0.RELEASE.jar
+* org.springframework.asm-3.1.0.RELEASE.jar
+* org.springframework.aspects-3.1.0.RELEASE.jar
+* org.springframework.beans-3.1.0.RELEASE.jar
+* org.springframework.context-3.1.0.RELEASE.jar
+* org.springframework.context.support-3.1.0.RELEASE.jar
+* org.springframework.core-3.1.0.RELEASE.jar
+* org.springframework.expression-3.1.0.RELEASE.jar
+* org.springframework.instrument-3.1.0.RELEASE.jar
+* org.springframework.instrument.tomcat-3.1.0.RELEASE.jar
+* org.springframework.jdbc-3.1.0.RELEASE.jar
+* org.springframework.jms-3.1.0.RELEASE.jar
+* org.springframework.orm-3.1.0.RELEASE.jar
+* org.springframework.oxm-3.1.0.RELEASE.jar
+* org.springframework.test-3.1.0.RELEASE.jar
+* org.springframework.transaction-3.1.0.RELEASE.jar
+* org.springframework.web-3.1.0.RELEASE.jar
+* org.springframework.web.portlet-3.1.0.RELEASE.jar
+* org.springframework.web.servlet-3.1.0.RELEASE.jar
+* org.springframework.web.struts-3.1.0.RELEASE.jar
+* slf4j-api-1.6.1.jar
